@@ -141,7 +141,9 @@ private extension ProfileViewController {
         navigationItem.rightBarButtonItem = rightBarButton
     }
     
+    // 오른쪽 상단의 ... 모양 버튼을 클릭시 동작하는 메서드
     @objc func didTapRightBarButtonItem() {
+        // 알림창 설정을 한다.
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         // 경고창 타이틀 및 색상설정
         [
