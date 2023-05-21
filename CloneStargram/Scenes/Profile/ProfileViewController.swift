@@ -74,6 +74,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationItems()
+        setupLayout()
     }
     
     
@@ -105,7 +106,8 @@ private extension ProfileViewController {
         [
             profileImageView,
             nameLabel,
-            descriptionLabel
+            descriptionLabel,
+            buttonStackView
         ].forEach { view.addSubview($0) }
         
         let inset: CGFloat = 16.0
