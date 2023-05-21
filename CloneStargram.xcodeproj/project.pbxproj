@@ -74,8 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				ECED1E622A1A6D4700AEA063 /* FeedViewController.swift */,
-				ECED1E752A1A6E4500AEA063 /* TabBarController.swift */,
 				ECED1E782A1A733300AEA063 /* FeedTableViewCell.swift */,
+				ECED1E752A1A6E4500AEA063 /* TabBarController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

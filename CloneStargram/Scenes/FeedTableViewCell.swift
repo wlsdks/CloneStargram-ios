@@ -8,6 +8,23 @@
 import SnapKit
 import UIKit
 
+//helper메소드는 extension으로 주로 처리함
+extension UIButton {
+    // 커스텀 메서드
+    func setImage(systemName: String) {
+        contentHorizontalAlignment = .fill
+        contentVerticalAlignment = .fill
+        
+        imageView?.contentMode = .scaleAspectFit
+        imageEdgeInsets = .zero
+        
+        setImage(UIImage(systemName: systemName), for: .normal)
+    }
+}
+
+/**
+ 테이블뷰에 보여질 피드 내용 cell을 설정하는 코드
+ */
 final class FeedTableViewCell: UITableViewCell {
     
     // MARK: - 게시글 이미지
@@ -21,7 +38,8 @@ final class FeedTableViewCell: UITableViewCell {
     // MARK: - 좋아요 버튼
     private lazy var likeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
+//        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.setImage(systemName: "heart")
         
         return button
     }()
@@ -29,7 +47,8 @@ final class FeedTableViewCell: UITableViewCell {
     // MARK: - 댓글달기 버튼
     private lazy var commentButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "message"), for: .normal)
+//        button.setImage(UIImage(systemName: "message"), for: .normal)
+        button.setImage(systemName: "message")
         
         return button
     }()
@@ -37,7 +56,8 @@ final class FeedTableViewCell: UITableViewCell {
     // MARK: - dm보내기 버튼
     private lazy var directMessageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+//        button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        button.setImage(systemName: "paperplane")
         
         return button
     }()
@@ -45,7 +65,8 @@ final class FeedTableViewCell: UITableViewCell {
     // MARK: - 북마크(즐겨찾기) 버튼
     private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+//        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        button.setImage(systemName: "bookmark")
         
         return button
     }()
