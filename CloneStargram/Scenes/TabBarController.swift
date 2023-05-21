@@ -16,7 +16,7 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let feedViewController = UIViewController() // 아직은 안만들어서 임의로 뷰컨트롤러를 설정해줌
+        let feedViewController = FeedViewController() // 아직은 안만들어서 임의로 뷰컨트롤러를 설정해줌
         feedViewController.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "house"),
