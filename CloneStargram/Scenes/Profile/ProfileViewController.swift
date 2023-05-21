@@ -67,10 +67,27 @@ final class ProfileViewController: UIViewController {
         return button
     }()
     
+    // 생성자로 데이터 설정하기
     private let photoDataView = ProfileDataView(title: "게시물", count: 123)
     private let followerDataView = ProfileDataView(title: "팔로워", count: 2000)
     private let followingDataView = ProfileDataView(title: "팔로잉", count: 1)
     
+    // MARK: - 컬렉션 뷰 컴포넌트
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0.5
+        layout.minimumInteritemSpacing = 0.5
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: "ProfileCollectionViewCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        return collectionView
+    }()
+    
+    // MARK: - 앱 가장먼저 실행되는 메서드
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +95,32 @@ final class ProfileViewController: UIViewController {
         setupLayout()
     }
     
+    
+}
+
+// MARK: - 컬렉션뷰 레이아웃 설정 delegate선언
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = (collectionView.frame.width / 3) - 1.0
+        return CGSize(width: width, height: width)
+    }
+}
+
+// MARK: - 셀 설정하는 dataSource확장 선언
+extension ProfileViewController: UICollectionViewDataSource {
+    
+    // 셀 갯수 설정
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    // 컬렉션 셀 설정
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as? ProfileCollectionViewCell
+        cell?.setup(with: UIImage())
+        
+        return cell ?? UICollectionViewCell()
+    }
     
 }
 
@@ -113,7 +156,8 @@ private extension ProfileViewController {
             dataStackView,
             nameLabel,
             descriptionLabel,
-            buttonStackView
+            buttonStackView,
+            collectionView
         ].forEach { view.addSubview($0) }
         
         let inset: CGFloat = 16.0
@@ -149,12 +193,12 @@ private extension ProfileViewController {
             $0.trailing.equalTo(nameLabel.snp.trailing)
         }
 
-//        collectionView.snp.makeConstraints {
-//            $0.leading.equalToSuperview()
-//            $0.trailing.equalToSuperview()
-//            $0.top.equalTo(buttonStackView.snp.bottom).offset(16.0)
-//            $0.bottom.equalToSuperview()
-//        }
+        collectionView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.top.equalTo(buttonStackView.snp.bottom).offset(16.0)
+            $0.bottom.equalToSuperview()
+        }
         
     }
 }
