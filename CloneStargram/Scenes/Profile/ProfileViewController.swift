@@ -67,8 +67,9 @@ final class ProfileViewController: UIViewController {
         return button
     }()
     
-    
-    
+    private let photoDataView = ProfileDataView(title: "게시물", count: 123)
+    private let followerDataView = ProfileDataView(title: "팔로워", count: 2000)
+    private let followingDataView = ProfileDataView(title: "팔로잉", count: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,8 +104,13 @@ private extension ProfileViewController {
         buttonStackView.spacing = 4.0 // 간격은 4로 설정
         buttonStackView.distribution = .fillEqually // 두 버튼의 넓이는 동일하게 설정
         
+        let dataStackView = UIStackView(arrangedSubviews: [photoDataView, followerDataView, followingDataView])
+        dataStackView.spacing = 4
+        dataStackView.distribution = .fillEqually
+        
         [
             profileImageView,
+            dataStackView,
             nameLabel,
             descriptionLabel,
             buttonStackView
@@ -119,11 +125,11 @@ private extension ProfileViewController {
             $0.height.equalTo(profileImageView.snp.width)
         }
 
-//        dataStackView.snp.makeConstraints {
-//            $0.leading.equalTo(profileImageView.snp.trailing).offset(inset)
-//            $0.trailing.equalToSuperview().inset(inset)
-//            $0.centerY.equalTo(profileImageView.snp.centerY)
-//        }
+        dataStackView.snp.makeConstraints {
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(inset)
+            $0.trailing.equalToSuperview().inset(inset)
+            $0.centerY.equalTo(profileImageView.snp.centerY) //중앙으로 표시하면 표현이 안전하다.
+        }
 
         nameLabel.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(12.0)
