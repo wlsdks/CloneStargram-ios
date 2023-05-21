@@ -8,20 +8,6 @@
 import SnapKit
 import UIKit
 
-//helper메소드는 extension으로 주로 처리함
-extension UIButton {
-    // 커스텀 메서드
-    func setImage(systemName: String) {
-        contentHorizontalAlignment = .fill
-        contentVerticalAlignment = .fill
-        
-        imageView?.contentMode = .scaleAspectFit
-        imageEdgeInsets = .zero
-        
-        setImage(UIImage(systemName: systemName), for: .normal)
-    }
-}
-
 /**
  테이블뷰에 보여질 피드 내용 cell을 설정하는 코드
  */
