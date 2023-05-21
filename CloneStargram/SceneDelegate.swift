@@ -16,8 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.backgroundColor = .systemBackground
-        window?.rootViewController = TabBarController()
+        window?.backgroundColor = .systemBackground // 백그라운드 설정
+        window?.rootViewController = TabBarController() // 메인 컨트롤러 지정
+        window?.tintColor = .label // 틴트컬러 설정
         window?.makeKeyAndVisible()
     }
 
