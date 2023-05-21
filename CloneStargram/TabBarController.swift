@@ -16,14 +16,16 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let feedViewController = UINavigationController(rootViewController: FeedViewController()) // 아직은 안만들어서 임의로 뷰컨트롤러를 설정해줌
+        // navigationController에 embed하는게 필수다.
+        let feedViewController = UINavigationController(rootViewController: FeedViewController())
         feedViewController.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "house"),
             selectedImage: UIImage(systemName: "house.fill")
         )
         
-        let profileViewController = UIViewController() // 아직은 안만들어서 임의로 뷰컨트롤러를 설정해줌
+        // navigationController에 embed하는게 필수다.
+        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
         profileViewController.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "person"),
