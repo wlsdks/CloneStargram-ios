@@ -17,6 +17,9 @@ class FeedViewController: UIViewController {
         tableView.separatorStyle = .none // 컬렉션뷰처럼 활용하기 위해 none으로 설정
         tableView.dataSource = self // 셀 데이터 설정 추가
         
+        // identifier 등록
+        tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "FeedTableViewCell")
+        
         return tableView
     }()
 
@@ -40,10 +43,10 @@ extension FeedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .black
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell
+        cell?.selectionStyle = .none
         
-        return cell
+        return cell ?? UITableViewCell()
     }
 }
 
