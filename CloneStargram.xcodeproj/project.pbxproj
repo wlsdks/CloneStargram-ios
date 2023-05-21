@@ -13,6 +13,7 @@
 		ECED1E682A1A6D4800AEA063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECED1E672A1A6D4800AEA063 /* Assets.xcassets */; };
 		ECED1E6B2A1A6D4800AEA063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECED1E692A1A6D4800AEA063 /* LaunchScreen.storyboard */; };
 		ECED1E742A1A6D7100AEA063 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ECED1E732A1A6D7100AEA063 /* SnapKit */; };
+		ECED1E762A1A6E4500AEA063 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED1E752A1A6E4500AEA063 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		ECED1E672A1A6D4800AEA063 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECED1E6A2A1A6D4800AEA063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECED1E6C2A1A6D4800AEA063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECED1E752A1A6E4500AEA063 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,12 +60,21 @@
 			children = (
 				ECED1E5E2A1A6D4700AEA063 /* AppDelegate.swift */,
 				ECED1E602A1A6D4700AEA063 /* SceneDelegate.swift */,
-				ECED1E622A1A6D4700AEA063 /* ViewController.swift */,
+				ECED1E772A1A6E4C00AEA063 /* Scenes */,
 				ECED1E672A1A6D4800AEA063 /* Assets.xcassets */,
 				ECED1E692A1A6D4800AEA063 /* LaunchScreen.storyboard */,
 				ECED1E6C2A1A6D4800AEA063 /* Info.plist */,
 			);
 			path = CloneStargram;
+			sourceTree = "<group>";
+		};
+		ECED1E772A1A6E4C00AEA063 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				ECED1E622A1A6D4700AEA063 /* ViewController.swift */,
+				ECED1E752A1A6E4500AEA063 /* TabBarController.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECED1E632A1A6D4700AEA063 /* ViewController.swift in Sources */,
+				ECED1E762A1A6E4500AEA063 /* TabBarController.swift in Sources */,
 				ECED1E5F2A1A6D4700AEA063 /* AppDelegate.swift in Sources */,
 				ECED1E612A1A6D4700AEA063 /* SceneDelegate.swift in Sources */,
 			);
