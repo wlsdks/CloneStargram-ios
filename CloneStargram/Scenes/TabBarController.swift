@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ 앱 하단의 탭bar를 설정하는 컨트롤러
+ */
 final class TabBarController: UITabBarController {
     
     
