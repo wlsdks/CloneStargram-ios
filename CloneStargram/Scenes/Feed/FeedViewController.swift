@@ -72,8 +72,14 @@ extension FeedViewController: UIImagePickerControllerDelegate, UINavigationContr
             selectImage = originImage
         }
         
-        // 이미지를 선택하면 창이 꺼지도록 구현
-        picker.dismiss(animated: true)
+        // 이미지를 선택하면 창이 꺼지고 업로드를 위한 뷰 컨트롤러로 연결시켜준다.
+        picker.dismiss(animated: true) { [weak self] in // 클로저 형태에서 꼭 weak self로 매모리 순환참조를 방지하자
+            let uploadViewController = UploadViewController()
+            let navigationController = UINavigationController(rootViewController: uploadViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            
+            self?.present(navigationController, animated: true)
+        }
     }
 }
 
