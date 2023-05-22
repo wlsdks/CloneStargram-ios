@@ -28,6 +28,7 @@ class FeedViewController: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary // 아이폰의 이미지를 가져올 수 있도록 해준다.
         imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
         
         return imagePickerController
     }()
@@ -56,6 +57,23 @@ extension FeedViewController: UITableViewDataSource {
         cell?.setup()
         
         return cell ?? UITableViewCell()
+    }
+}
+
+// UIImagePickerControllerDelegate는 UINavigationControllerDelegate랑 같이 채택해줘야 한다.
+extension FeedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectImage: UIImage?
+        
+        // 키값이 editedImage이면 selectImage = editedImage고 originImage면 selectImage = originImage이다.
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            selectImage = editedImage
+        } else if let originImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectImage = originImage
+        }
+        
+        // 이미지를 선택하면 창이 꺼지도록 구현
+        picker.dismiss(animated: true)
     }
 }
 
