@@ -23,6 +23,13 @@ class FeedViewController: UIViewController {
         return tableView
     }()
 
+    // 이미지를(사진을) 선택할 수 있는 controller 생성
+    private lazy var imagePickerController: UIImagePickerController = {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary // 아이폰의 이미지를 가져올 수 있도록 해준다.
+        
+        return imagePickerController
+    }()
     
     // MARK: - 가장 먼저 실행되는 메서드
     override func viewDidLoad() {
@@ -63,10 +70,15 @@ private extension FeedViewController {
             image: UIImage(systemName: "plus.app"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(didTapUploadButton)
         )
         
         navigationItem.rightBarButtonItem = uploadButton
+    }
+    
+    @objc func didTapUploadButton() {
+        //imagePicker를 present 해줘야함
+        present(imagePickerController, animated: true)
     }
     
     // 테이블 뷰 세팅 메서드
