@@ -95,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				ECED1E622A1A6D4700AEA063 /* FeedViewController.swift */,
-				EC0F950A2A1B9CE0008F991B /* UploadViewController.swift */,
 				ECED1E782A1A733300AEA063 /* FeedTableViewCell.swift */,
+				EC0F950A2A1B9CE0008F991B /* UploadViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
