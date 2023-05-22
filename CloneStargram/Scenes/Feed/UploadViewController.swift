@@ -8,6 +8,9 @@
 import SnapKit
 import UIKit
 
+/**
+ 이미지를 선택하면 업로드를 위해 내용을 적는 뷰를 보여주는 컨트롤러
+ */
 final class UploadViewController: UIViewController {
     
     

@@ -8,6 +8,9 @@
 import SnapKit
 import UIKit
 
+/**
+ 메인 피드에 대한 정보를 설정하는 view컨트롤러
+ */
 class FeedViewController: UIViewController {
     
     // 테이블뷰 선언
