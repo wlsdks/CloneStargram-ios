@@ -17,11 +17,12 @@ final class UploadViewController: UIViewController {
     
     private let imageView = UIImageView()
     
-    private lazy var textView: UITextView = {
-        let textView = UITextView()
-        textView.font = .systemFont(ofSize: 15.0)
+    private lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.font = .systemFont(ofSize: 15.0)
+        textField.placeholder = "문구를 입력해주세요."
         
-        return textView
+        return textField
     }()
     
     init(uploadImage: UIImage) {
@@ -77,7 +78,7 @@ private extension UploadViewController {
 
     // MARK: - 레이아웃 설정 메서드
     func setupLayout() {
-        [imageView, textView].forEach {
+        [imageView, textField].forEach {
             view.addSubview($0)
         }
         
@@ -90,7 +91,7 @@ private extension UploadViewController {
             $0.height.equalTo(imageView.snp.width)
         }
         
-        textView.snp.makeConstraints {
+        textField.snp.makeConstraints {
             $0.leading.equalTo(imageView.snp.trailing).offset(imageViewInset)
             $0.trailing.equalToSuperview().inset(imageViewInset)
             $0.top.equalTo(imageView.snp.top)
