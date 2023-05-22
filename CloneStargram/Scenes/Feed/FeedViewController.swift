@@ -27,6 +27,7 @@ class FeedViewController: UIViewController {
     private lazy var imagePickerController: UIImagePickerController = {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary // 아이폰의 이미지를 가져올 수 있도록 해준다.
+        imagePickerController.allowsEditing = true
         
         return imagePickerController
     }()
